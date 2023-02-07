@@ -50,7 +50,9 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
             default -> dir = "";
         }
 
-        String fullName = dir + "\\" + FileUtils.getFileNameWithExtension(nameFile,"txt");
+        String extension = (type.equals(MFileAnnotationType.IMAGE) ? "jpg" : "txt");
+
+        String fullName = dir + "\\" + FileUtils.getFileNameWithExtension(nameFile,extension);
 
         String path = directory + fullName;
 
@@ -91,7 +93,7 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
     @Override
     public void saveImageFile(String directory, String content, String nameFile) {
         try{
-            String  dir = "imagens";
+            String  dir = "images";
             BufferedImage image;
 
             super.createAFolder(directory + dir, MFileAnnotationType.IMAGE);
@@ -115,8 +117,7 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
 
     @Override
     public void removeImageFile(String directory, String nameFile) {
-        System.out.println("TODO: FileOrchestrator.removeImageFile");
-        //TODO: não implementado
+        removeFile(directory,nameFile,MFileAnnotationType.IMAGE);
     }
 
     @Override
