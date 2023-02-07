@@ -5,6 +5,7 @@ import br.com.keemy.filemanager.commands.Command;
 import br.com.keemy.filemanager.enums.MFileAnnotationType;
 import br.com.keemy.filemanager.models.MFile;
 import br.com.keemy.filemanager.utils.InputService;
+import br.com.keemy.filemanager.utils.StringUtils;
 
 import java.util.Scanner;
 
@@ -32,12 +33,12 @@ public class CmdSaveTxt extends Command {
 
     @Override
     public String helpMenu() {
-        return "savetxt: save a text file\n" +
-                "     Syntax: savetxt [argument] [fileName]\n" +
+        return "# " + StringUtils.formatBlue("SAVETXT") + ": save a text file\n" +
+                StringUtils.formatYellow("     Syntax: SAVETXT [argument] [fileName]\n") +
                 "     Argument Options:\n" +
                 "     /R - Reminder\n" +
                 "     /I - Important\n" +
-                "     /S - Simple\n";
+                "     /S - Simple\n;end;";
     }
 
     private void createFile(MFileAnnotationType fileType, String fileName) {

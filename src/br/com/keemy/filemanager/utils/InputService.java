@@ -36,4 +36,8 @@ public final class InputService {
         return( s.length() == 0 ? scan.nextLine() : s );
     });
 
+    public static void pause(String message) {
+        System.out.print(message);
+        getScanner().nextLine();
+    }
 }

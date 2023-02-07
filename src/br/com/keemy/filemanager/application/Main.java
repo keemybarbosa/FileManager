@@ -5,6 +5,7 @@ import br.com.keemy.filemanager.enums.MFileAnnotationType;
 import br.com.keemy.filemanager.handlers.HandlerCommand;
 import br.com.keemy.filemanager.models.MFile;
 import br.com.keemy.filemanager.utils.InputService;
+import br.com.keemy.filemanager.utils.StringUtils;
 
 import javax.swing.*;
 import java.io.File;
@@ -19,7 +20,8 @@ public class Main {
 
         new CmdDefaultDir().execute();
 
-        System.out.println("use the help command to know the other options ");
+        System.out.println("\n####### Welcome to File Manager System #######\n");
+        System.out.println("use the " + StringUtils.formatBlue("HELP") + " command to know the other options ");
         do{
 
             System.out.printf("%s>",Global.currentDir);

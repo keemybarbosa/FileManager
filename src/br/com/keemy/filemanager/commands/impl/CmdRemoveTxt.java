@@ -4,9 +4,7 @@ import br.com.keemy.filemanager.application.Global;
 import br.com.keemy.filemanager.commands.Command;
 import br.com.keemy.filemanager.enums.MFileAnnotationType;
 import br.com.keemy.filemanager.models.MFile;
-import br.com.keemy.filemanager.utils.InputService;
-
-import java.util.Scanner;
+import br.com.keemy.filemanager.utils.StringUtils;
 
 public class CmdRemoveTxt extends Command {
 
@@ -33,12 +31,12 @@ public class CmdRemoveTxt extends Command {
 
     @Override
     public String helpMenu() {
-        return "removetxt: remove a text file\n" +
-                "     Syntax: removetxt [argument] [fileName]\n" +
+        return "# " + StringUtils.formatBlue("REMOVETXT") + ": remove a text file\n" +
+                StringUtils.formatYellow("     Syntax: removetxt [argument] [fileName]\n") +
                 "     Argument Options:\n" +
                 "     /R - Reminder\n" +
                 "     /I - Important\n" +
-                "     /S - Simple\n";
+                "     /S - Simple\n;end;";
     }
 
     private void removeFile(MFileAnnotationType fileType, String fileName) {

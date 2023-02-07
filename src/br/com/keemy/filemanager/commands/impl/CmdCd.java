@@ -2,6 +2,7 @@ package br.com.keemy.filemanager.commands.impl;
 
 import br.com.keemy.filemanager.application.Global;
 import br.com.keemy.filemanager.commands.Command;
+import br.com.keemy.filemanager.utils.StringUtils;
 
 import java.io.File;
 
@@ -45,11 +46,11 @@ public class CmdCd extends Command {
 
     @Override
     public String helpMenu() {
-        return "cd: change directory\n" +
-                "    Syntax: cd [argument]\n" +
+        return "# " + StringUtils.formatBlue("CD") + ": change directory\n" +
+                StringUtils.formatYellow("    Syntax: cd [argument]\n") +
                 "         Argument Options: \n" +
                 "         [..] - Back to previous folder;\n" +
                 "         [folder Path] - Change folder;\n" +
-                "         [\\] - Back to root[NOT IMPLEMENTED]\n";
+                "         [\\] - Back to root\n;end;";
     }
 }

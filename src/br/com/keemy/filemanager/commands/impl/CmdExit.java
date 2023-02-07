@@ -1,6 +1,7 @@
 package br.com.keemy.filemanager.commands.impl;
 
 import br.com.keemy.filemanager.commands.Command;
+import br.com.keemy.filemanager.utils.StringUtils;
 
 public class CmdExit extends Command {
 
@@ -16,6 +17,6 @@ public class CmdExit extends Command {
 
     @Override
     public String helpMenu() {
-        return "exit: exit program!\n";
+        return "# " +  StringUtils.formatBlue("EXIT") + ": exit program!\n;end;";
     }
 }

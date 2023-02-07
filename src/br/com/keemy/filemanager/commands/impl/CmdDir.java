@@ -2,6 +2,7 @@ package br.com.keemy.filemanager.commands.impl;
 
 import br.com.keemy.filemanager.application.Global;
 import br.com.keemy.filemanager.commands.Command;
+import br.com.keemy.filemanager.utils.StringUtils;
 
 public class CmdDir extends Command {
 
@@ -16,6 +17,6 @@ public class CmdDir extends Command {
 
     @Override
     public String helpMenu() {
-        return "dir: List files and directories!\n";
+        return "# " + StringUtils.formatBlue("DIR") + ": List files and directories!\n;end;";
     }
 }

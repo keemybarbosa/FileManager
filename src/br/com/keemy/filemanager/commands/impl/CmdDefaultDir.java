@@ -25,6 +25,6 @@ public class CmdDefaultDir extends Command {
 
     @Override
     public String helpMenu() {
-        return "defaultDir\n";
+        return "defaultDir\n;end;";
     }
 }

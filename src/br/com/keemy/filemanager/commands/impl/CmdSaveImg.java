@@ -2,11 +2,8 @@ package br.com.keemy.filemanager.commands.impl;
 
 import br.com.keemy.filemanager.application.Global;
 import br.com.keemy.filemanager.commands.Command;
-import br.com.keemy.filemanager.enums.MFileAnnotationType;
 import br.com.keemy.filemanager.models.MFile;
-import br.com.keemy.filemanager.utils.InputService;
-
-import java.util.Scanner;
+import br.com.keemy.filemanager.utils.StringUtils;
 
 public class CmdSaveImg extends Command {
 
@@ -31,8 +28,9 @@ public class CmdSaveImg extends Command {
 
     @Override
     public String helpMenu() {
-        return "saveimg: save a image file from a url.\n" +
-                "     Syntax: savetxt [fileName] [url]\n";
+        return "# "  + StringUtils.formatBlue("SAVEIMG") + ": save a image file from a url.\n" +
+                StringUtils.formatYellow("     Syntax: SAVEIMG [fileName] [url]\n") +
+                        ";end;";
     }
 
 }
