@@ -9,6 +9,8 @@ public final class FileUtils {
             if (!fileName.substring(len-4,len).equals("."+extension)){
                 return fileName + "." + extension;
             }
+        } else {
+            return fileName + "." + extension; //4 or less
         }
 
         return fileName;
