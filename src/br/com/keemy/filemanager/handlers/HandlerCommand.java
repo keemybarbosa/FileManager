@@ -38,7 +38,9 @@ public class HandlerCommand {
         } else if (command.equals("DIR")) {
             getInstance().executeCommand(new CmdDir(arguments));
         } else if (command.equals("SAVETXT")) {
-           getInstance().executeCommand(new CmdSaveTxt(arguments));
+            getInstance().executeCommand(new CmdSaveTxt(arguments));
+        } else if (command.equals("SAVEIMG")){
+            getInstance().executeCommand(new CmdSaveImg(arguments));
         } else{
             System.out.println("Command not found!!\nUse help for more options!");
         }

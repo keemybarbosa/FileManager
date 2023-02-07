@@ -19,6 +19,7 @@ public class CmdHelp extends Command {
                 new CmdExit("").helpMenu() +
                 new CmdCd("").helpMenu() +
                 new CmdDir("").helpMenu() +
-                new CmdSaveTxt("").helpMenu();
+                new CmdSaveTxt("").helpMenu() +
+                new CmdSaveImg("").helpMenu();
     }
 }

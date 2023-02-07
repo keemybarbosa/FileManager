@@ -68,11 +68,15 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
         try{
             String  dir = "imagens";
             BufferedImage image;
+
+            super.createAFolder(directory + dir, MFileAnnotationType.IMAGE);
+
             URL url = new URL(content);
             image = ImageIO.read(url);
-            String path = directory + "\\" + dir + "\\" + nameFile + ".jpg";
-            ImageIO.write(image, "jpg", new File(path));
-            System.out.println("imagem salva com sucesso");
+            String imageFile = directory + dir + "\\" + nameFile + ".jpg";
+
+            ImageIO.write(image, "jpg", new File(imageFile));
+            System.out.println("Image Saved successful");
         } catch (Exception e){
             System.out.println("Error to save imageFile");
         }
