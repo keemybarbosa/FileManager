@@ -23,6 +23,10 @@ public class HandlerFile  {
         fileDatabase.saveFile(file.getPath(), file.getContent(), file.getType(), file.getFileName() );
     }
 
+    public boolean removerArquivo(MFile file){
+        return fileDatabase.removeFile(file.getPath(), file.getFileName(), file.getType());
+    }
+
     public void listarArquivos(String directory){
         if (!directory.substring(directory.length()-1).equals("\\")){
             directory += "\\";

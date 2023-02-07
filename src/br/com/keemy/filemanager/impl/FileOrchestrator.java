@@ -3,6 +3,7 @@ package br.com.keemy.filemanager.impl;
 import br.com.keemy.filemanager.enums.MFileAnnotationType;
 import br.com.keemy.filemanager.interfaces.FileDatabase;
 import br.com.keemy.filemanager.interfaces.ImageFileDatabase;
+import br.com.keemy.filemanager.utils.FileUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -23,7 +24,7 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
         }
         super.createAFolder(directory + dir, type);
 
-        String path = directory + dir + "\\" + nameFile + ".txt";
+        String path = directory + dir + "\\" + FileUtils.getFileNameWithExtension(nameFile,"txt");
 
 
         try (FileWriter writer = new FileWriter(path)) {
@@ -40,9 +41,33 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
     }
 
     @Override
-    public void removeFile(String directory, String nameFile, MFileAnnotationType type) {
-        System.out.println("TODO: FileOrchestrator.removeFile");
-        //TODO: não implementado
+    public boolean removeFile(String directory, String nameFile, MFileAnnotationType type) {
+        String dir;
+        switch (type) {
+            case REMINDER -> dir = "\\reminders";
+            case IMPORTANT -> dir = "\\importants";
+            case IMAGE -> dir = "\\images";
+            default -> dir = "";
+        }
+
+        String fullName = dir + "\\" + FileUtils.getFileNameWithExtension(nameFile,"txt");
+
+        String path = directory + fullName;
+
+        if (!(new File(path).exists())){
+            System.out.printf("File %s not found\n", fullName);
+            return false;
+        }
+
+        try {
+            File file = new File(path);
+            if(file.delete()){
+                System.out.printf("File %s removed successfully!%n", fullName);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     @Override
@@ -73,7 +98,7 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
 
             URL url = new URL(content);
             image = ImageIO.read(url);
-            String imageFile = directory + dir + "\\" + nameFile + ".jpg";
+            String imageFile = directory + dir + "\\" + FileUtils.getFileNameWithExtension(nameFile , "jpg");
 
             ImageIO.write(image, "jpg", new File(imageFile));
             System.out.println("Image Saved successful");

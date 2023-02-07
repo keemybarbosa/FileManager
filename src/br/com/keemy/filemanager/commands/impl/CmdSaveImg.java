@@ -31,7 +31,7 @@ public class CmdSaveImg extends Command {
 
     @Override
     public String helpMenu() {
-        return "savetxt: save a image file from a url.\n" +
+        return "saveimg: save a image file from a url.\n" +
                 "     Syntax: savetxt [fileName] [url]\n";
     }
 
