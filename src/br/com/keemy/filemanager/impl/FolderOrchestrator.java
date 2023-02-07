@@ -33,9 +33,26 @@ public class FolderOrchestrator implements FolderManagement {
     }
 
     @Override
-    public void removeAFolder(String path) {
-        System.out.println("TODO: FolderOrchestrator.removeAFolder");
-        //TODO: não implementado
+    public boolean removeAFolder(String path) {
+        File myDirectory = new File(path);
+        try{
+            if (myDirectory.exists()){
+                File files[] = myDirectory.listFiles();
+                if (files.length == 0){
+                    myDirectory.delete();
+                } else {
+                    System.out.println("Directory will not be removed because isn't empty!\n");
+                    return false;
+                }
+                return true;
+            } else {
+                System.out.printf("O diretório %s não existe!%n", path);
+            }
+        }
+        catch (Exception e){
+            System.out.println(" ERROR AO EXCLUIR DIRETORIO ");
+        }
+        return false;
     }
 
     @Override

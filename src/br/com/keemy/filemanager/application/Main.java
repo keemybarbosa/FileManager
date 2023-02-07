@@ -24,7 +24,7 @@ public class Main {
         System.out.println("use the " + StringUtils.formatBlue("HELP") + " command to know the other options ");
         do{
 
-            System.out.printf("%s>",Global.currentDir);
+            System.out.printf(StringUtils.formatYellow( "%s>"),Global.currentDir);
             HandlerCommand.getInstance().createAndExecuteCommand(InputService.getMeAString().trim());
 
         } while(true);

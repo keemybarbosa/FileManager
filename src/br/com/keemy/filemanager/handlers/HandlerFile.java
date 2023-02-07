@@ -27,6 +27,10 @@ public class HandlerFile  {
         return fileDatabase.removeFile(file.getPath(), file.getFileName(), file.getType());
     }
 
+    public boolean removerDiretorio(String directory){
+        return folderManagement.removeAFolder(directory);
+    }
+
     public void listarArquivos(String directory){
         if (!directory.substring(directory.length()-1).equals("\\")){
             directory += "\\";
