@@ -33,6 +33,7 @@ public class CmdHelp extends Command {
                 new CmdSaveImg("").helpMenu() +
                 new CmdRemoveTxt("").helpMenu() +
                 new CmdRemoveImg("").helpMenu() +
-                new CmdRemoveDir("").helpMenu();
+                new CmdRemoveDir("").helpMenu() +
+                new CmdMkDir("").helpMenu();
     }
 }

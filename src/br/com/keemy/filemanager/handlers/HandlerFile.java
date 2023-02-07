@@ -1,5 +1,6 @@
 package br.com.keemy.filemanager.handlers;
 
+import br.com.keemy.filemanager.enums.MFileAnnotationType;
 import br.com.keemy.filemanager.impl.FileOrchestrator;
 import br.com.keemy.filemanager.interfaces.FileDatabase;
 import br.com.keemy.filemanager.interfaces.FolderManagement;
@@ -41,5 +42,9 @@ public class HandlerFile  {
 
     public void salvarImagemComDiretorio(MFile mFile) {
         imageFileDatabase.saveImageFile(mFile.getPath(), mFile.getContent(), mFile.getFileName());
+    }
+
+    public boolean criarDiretorio(String fullPath) {
+        return folderManagement.createAFolder(fullPath,  MFileAnnotationType.NONE );
     }
 }

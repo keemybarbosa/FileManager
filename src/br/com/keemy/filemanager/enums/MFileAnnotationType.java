@@ -5,4 +5,5 @@ public enum MFileAnnotationType {
     IMPORTANT,
     SIMPLE,
     IMAGE,
+    NONE,
 }

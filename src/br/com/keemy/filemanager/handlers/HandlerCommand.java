@@ -3,6 +3,8 @@ package br.com.keemy.filemanager.handlers;
 import br.com.keemy.filemanager.commands.Command;
 import br.com.keemy.filemanager.commands.impl.*;
 
+import javax.imageio.plugins.tiff.GeoTIFFTagSet;
+
 public class HandlerCommand {
 
     private static HandlerCommand instance;
@@ -47,6 +49,8 @@ public class HandlerCommand {
             getInstance().executeCommand(new CmdRemoveImg(arguments));
         } else if (command.equals("REMOVEDIR")) {
             getInstance().executeCommand(new CmdRemoveDir(arguments));
+        } else if(command.equals("MKDIR")){
+            getInstance().executeCommand(new CmdMkDir(arguments));
         } else{
             System.out.println("Command not found!!\nUse help for more options!");
         }

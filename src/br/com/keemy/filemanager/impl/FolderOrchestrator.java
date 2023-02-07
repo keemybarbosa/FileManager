@@ -7,12 +7,13 @@ import java.io.File;
 
 public class FolderOrchestrator implements FolderManagement {
     @Override
-    public void createAFolder(String path, MFileAnnotationType fileType) {
+    public boolean createAFolder(String path, MFileAnnotationType fileType) {
         String dir = "";
         switch (fileType) {
             case REMINDER -> dir = "reminders";
             case IMPORTANT -> dir = "importants";
             case IMAGE -> dir = "images";
+            case NONE -> dir = "";
             default -> dir = "";
         }
         try {
@@ -27,9 +28,11 @@ public class FolderOrchestrator implements FolderManagement {
 
             }
 
+            return true;
         } catch (Exception e) {
             System.out.println(" ERROR AO CRIAR DIRETORIO ");
         }
+        return false;
     }
 
     @Override
