@@ -122,17 +122,26 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
 
     @Override
     public void listAllImageFiles(String directory) {
-        File file = new File(directory);
+
+        String fullPath = directory + "images";
+
+        File file = new File(fullPath);
 
         File[] listFiles = file.listFiles();
 
         if (listFiles != null) {
+            System.out.printf("Listing all files inside %s directory.%n", fullPath);
             for (File currentFile : listFiles) {
                 if (currentFile.isFile()) {
-                    System.out.println(currentFile.getName());
+                    System.out.printf("     \t %s%n",currentFile.getName());
                 }
 
             }
-        } else System.out.println("NOT FOUND FILES");
+        } else System.out.println("No Files Found!");
+
+
+
+
+
     }
 }

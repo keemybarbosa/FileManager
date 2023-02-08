@@ -49,8 +49,10 @@ public class HandlerCommand {
             getInstance().executeCommand(new CmdRemoveImg(arguments));
         } else if (command.equals("REMOVEDIR")) {
             getInstance().executeCommand(new CmdRemoveDir(arguments));
-        } else if(command.equals("MKDIR")){
+        } else if(command.equals("MKDIR")) {
             getInstance().executeCommand(new CmdMkDir(arguments));
+        } else if (command.equals("LISTIMG")){
+            getInstance().executeCommand(new CmdListImg(arguments));
         } else{
             System.out.println("Command not found!!\nUse help for more options!");
         }

@@ -47,4 +47,8 @@ public class HandlerFile  {
     public boolean criarDiretorio(String fullPath) {
         return folderManagement.createAFolder(fullPath,  MFileAnnotationType.NONE );
     }
+
+    public void listarImagens(String directory) {
+        imageFileDatabase.listAllImageFiles(directory);
+    }
 }
