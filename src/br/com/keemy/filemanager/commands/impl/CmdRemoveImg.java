@@ -16,7 +16,7 @@ public class CmdRemoveImg extends Command {
     public void execute() {
         String fileName = getArguments();
 
-        removeFile(MFileAnnotationType.IMAGE, fileName);
+        removeImageFile(MFileAnnotationType.IMAGE, fileName);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class CmdRemoveImg extends Command {
                 ";end;";
     }
 
-    private void removeFile(MFileAnnotationType fileType, String fileName) {
+    private void removeImageFile(MFileAnnotationType fileType, String fileName) {
 
         System.out.println("File type:" + fileType.name());
 

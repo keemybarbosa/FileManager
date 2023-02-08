@@ -46,7 +46,7 @@ public class CmdSaveTxt extends Command {
 
         System.out.println("File type:" + fileType.name());
         System.out.print("Type content of file: \n");
-        String contentArq = InputService.getMeAString();
+        String contentArq = InputService.getMeAString(false);
 
 
         MFile mFile = new MFile();

@@ -116,8 +116,8 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
     }
 
     @Override
-    public void removeImageFile(String directory, String nameFile) {
-        removeFile(directory,nameFile,MFileAnnotationType.IMAGE);
+    public boolean removeImageFile(String directory, String nameFile) {
+        return removeFile(directory,nameFile,MFileAnnotationType.IMAGE);
     }
 
     @Override

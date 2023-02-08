@@ -25,7 +25,7 @@ public class Main {
         do{
 
             System.out.printf(StringUtils.formatYellow( "%s>"),Global.currentDir);
-            HandlerCommand.getInstance().createAndExecuteCommand(InputService.getMeAString().trim());
+            HandlerCommand.getInstance().createAndExecuteCommand(InputService.getMeAString(false).trim());
 
         } while(true);
 

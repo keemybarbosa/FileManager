@@ -25,7 +25,7 @@ public class HandlerFile  {
     }
 
     public boolean removerArquivo(MFile file){
-        return fileDatabase.removeFile(file.getPath(), file.getFileName(), file.getType());
+        return imageFileDatabase.removeImageFile(file.getPath(), file.getFileName());
     }
 
     public boolean removerDiretorio(String directory){

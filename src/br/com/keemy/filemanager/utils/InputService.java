@@ -23,10 +23,14 @@ public final class InputService {
         return returnValue;
     }
 
-    public static String getMeAString(){
+    public static String getMeAString(boolean returnEmpty){
         String returnValue = null;
 
-        returnValue = scanLine.apply(getScanner());
+        if (returnEmpty){
+            returnValue = getScanner().nextLine();
+        } else {
+            returnValue = scanLine.apply(getScanner());
+        }
 
         return returnValue;
     }
@@ -36,8 +40,8 @@ public final class InputService {
         return( s.length() == 0 ? scan.nextLine() : s );
     });
 
-    public static void pause(String message) {
+    public static String pause(String message) {
         System.out.print(message);
-        getScanner().nextLine();
+        return InputService.getMeAString(true);
     }
 }

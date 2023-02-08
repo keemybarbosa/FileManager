@@ -18,7 +18,11 @@ public class CmdHelp extends Command {
         for (int i = 0; i < output.length; i++) {
             System.out.print(output[i]);
             if(i % 3 == 0){
-                InputService.pause("..............Type ENTER to continue..............");
+                String s = InputService.pause("..............Type " + StringUtils.formatBlue( "ENTER") +
+                        " to continue, " + StringUtils.formatBlue("Q") + " to Quit..............");
+                if(s.toUpperCase().trim().equals("Q")){
+                    return;
+                }
             }
         }
     }
