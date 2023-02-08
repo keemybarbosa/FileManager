@@ -53,6 +53,8 @@ public class HandlerCommand {
             getInstance().executeCommand(new CmdMkDir(arguments));
         } else if (command.equals("LISTIMG")){
             getInstance().executeCommand(new CmdListImg(arguments));
+        } else if (command.equals("RECOVERYIMG")){
+            getInstance().executeCommand(new CmdRecoveryImg(arguments));
         } else{
             System.out.println("Command not found!!\nUse help for more options!");
         }

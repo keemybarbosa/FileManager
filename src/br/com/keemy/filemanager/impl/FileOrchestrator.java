@@ -6,6 +6,8 @@ import br.com.keemy.filemanager.interfaces.ImageFileDatabase;
 import br.com.keemy.filemanager.utils.FileUtils;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
@@ -110,9 +112,28 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
     }
 
     @Override
-    public void recoveryImageFile(String directory) {
-        System.out.println("TODO: FileOrchestrator.recoveryImageFile");
-        //TODO: não implementado
+    public void recoveryImageFile(String directory, String nameFile) {
+
+        String dir = "images";
+        String fullName = directory + dir + "\\" + FileUtils.getFileNameWithExtension(nameFile,"jpg");
+        File file = new File(fullName);
+        if (file.exists()){
+            getImageAndShow(file);
+        } else {
+            System.out.printf("File %s not found%n", dir + "\\" + FileUtils.getFileNameWithExtension(nameFile,"jpg"));
+        }
+    }
+
+    private void getImageAndShow(File file) {
+        try{
+            BufferedImage bufImage = ImageIO.read(file);
+
+            new Imageframe().showImage(bufImage);
+
+        } catch (Exception e){
+            System.out.println("Display image generic Error");
+        }
+
     }
 
     @Override
@@ -138,10 +159,42 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
 
             }
         } else System.out.println("No Files Found!");
-
-
-
-
-
     }
+
+    private class Imageframe{
+        private JFrame fraMain;
+        private JPanel myPanel;
+        private JLabel lblTitle;
+        private JLabel lblImage;
+
+        public Imageframe() {
+            fraMain = new JFrame();
+            myPanel = new JPanel(new FlowLayout());
+            lblTitle = new JLabel();
+            lblImage = new JLabel();
+        }
+        public void showImage(Image image) {
+            if (image != null) {
+
+                int width = image.getWidth(null);
+                int height = image.getHeight(null);
+
+                lblTitle.setText("My Image:");
+                lblImage.setIcon(new ImageIcon(image));
+                lblTitle.setSize(new Dimension(300,100));
+
+                fraMain.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                fraMain.setSize(width , height + lblTitle.getHeight());
+
+                myPanel.add(lblTitle);
+                myPanel.add(lblImage);
+                fraMain.add(myPanel);
+                fraMain.setVisible(true);
+            } else {
+                System.out.printf("Image not found!");
+            }
+        }
+    }
+
 }

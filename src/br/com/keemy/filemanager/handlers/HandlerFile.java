@@ -1,5 +1,6 @@
 package br.com.keemy.filemanager.handlers;
 
+import br.com.keemy.filemanager.application.Global;
 import br.com.keemy.filemanager.enums.MFileAnnotationType;
 import br.com.keemy.filemanager.impl.FileOrchestrator;
 import br.com.keemy.filemanager.interfaces.FileDatabase;
@@ -50,5 +51,9 @@ public class HandlerFile  {
 
     public void listarImagens(String directory) {
         imageFileDatabase.listAllImageFiles(directory);
+    }
+
+    public void abrirImagem(String fileName) {
+        imageFileDatabase.recoveryImageFile(Global.currentDir, fileName);
     }
 }
